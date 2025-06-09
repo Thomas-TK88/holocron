@@ -76,7 +76,7 @@ $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
           </ul>
           <div class="film-buttons">
             <a href="fiche.php?type=film&id=<?= $film['id_film'] ?>" class="cta">Voir le film</a>
-            <a href="formulaire.php?type=film&id=<?= $film['id_film'] ?>">Donner son avis</a>           
+            <a href="formulaire.php?type=film&id=<?= $film['id_film'] ?>" class="review-btn">Donner son avis</a>           
           </div>
         </div>
       </div>

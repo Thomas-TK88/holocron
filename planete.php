@@ -55,7 +55,7 @@ try {
   
   <!-- Zone de recherche -->
   <div class="search-bar">
-    // Barre de recherche avec un identifiant nommé 'searchInput'
+    <!-- Barre de recherche avec un identifiant nommé 'searchInput' -->
     <input id="searchInput" type="text" placeholder="Rechercher une planète..." />
   </div>
   
@@ -75,9 +75,11 @@ try {
           <div class="planet-info">
             <h3><?= htmlspecialchars($planete['nom']) ?></h3>
             <p><?= nl2br(htmlspecialchars($planete['description'])) ?></p>
-            <a href="fiche.php?type=planete&id=<?= $planete['id_planete'] ?>" class="cta">Voir la planète</a>
-            <a href="formulaire.php?id=<?= $planete['id_planete'] ?>&type=planete">Donner son avis</a>
-          </div>
+            <div class="film-buttons">
+              <a href="fiche.php?type=planete&id=<?= $planete['id_planete'] ?>" class="cta">Voir la planète</a>
+              <a href="formulaire.php?id=<?= $planete['id_planete'] ?>&type=planete" class="review-btn">Donner son avis</a>
+            </div>
+            </div>
         </div>
       <?php endforeach; ?>
     </div>
