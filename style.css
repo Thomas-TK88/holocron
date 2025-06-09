@@ -1,6 +1,13 @@
 /* Classe d'idnetification de type d'element */
-card {
+.flippable {
+  transition: opacity 0.5s ease;
+}
+
+.card {
   display: flex;
+}
+
+.sound {
 }
 
 /* Affichage */

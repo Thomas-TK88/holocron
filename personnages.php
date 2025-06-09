@@ -26,7 +26,6 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HOLOCRON - Personnages</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Charge et execute le fichier javascript pour les interactions -->
   <script src="interactions.js"></script>
 </head>
 
@@ -64,7 +63,7 @@ try {
         <div class="card character-card" data-search_value="<?= htmlspecialchars($perso['nom']) ?>">
           <div class="character-image">
             <?php if (!empty($perso['image_url'])): ?>
-              <img class="vignette" src="<?= htmlspecialchars("images/normal/".$perso['image_url']) ?>" alt="<?= htmlspecialchars($perso['nom']) ?>">
+              <img class="vignette flippable" data-flip_img="<?= htmlspecialchars("images/flip/".$perso['image_url']) ?>" data-normal_img="<?= htmlspecialchars("images/normal/".$perso['image_url']) ?>" src="<?= htmlspecialchars("images/normal/".$perso['image_url']) ?>" alt="<?= htmlspecialchars($perso['nom']) ?>">
             <?php else: ?>
               <b><?= htmlspecialchars($perso['nom']) ?></b>
             <?php endif; ?>

@@ -66,7 +66,8 @@ try {
         <div class="card planet-card" data-search_value="<?= htmlspecialchars($planete['nom']) ?>">
           <div class="planet-image">
             <?php if (!empty($planete['image_url'])): ?>
-              <img class="vignette" src="<?= htmlspecialchars("images/normal/".$planete['image_url']) ?>" alt="<?= htmlspecialchars($planete['nom']) ?>" />
+              <!-- cree les items img avec la classe 'flippable' et les elements data avec les données pour le changement d'image -->
+              <img class="vignette flippable"  data-flip_img="<?= htmlspecialchars("images/flip/".$planete['image_url']) ?>" data-normal_img="<?= htmlspecialchars("images/normal/".$planete['image_url']) ?>" src="<?= htmlspecialchars("images/normal/".$planete['image_url']) ?>" alt="<?= htmlspecialchars($planete['nom']) ?>" />
             <?php else: ?>
               <b><?= htmlspecialchars($planete['nom']) ?></b>
             <?php endif; ?>
