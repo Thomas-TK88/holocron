@@ -1,3 +1,8 @@
+/* Classe d'idnetification de type d'element */
+card {
+  display: flex;
+}
+
 /* Affichage */
 body {
   margin: 0;

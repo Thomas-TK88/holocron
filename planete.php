@@ -26,6 +26,8 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>HOLOCRON - Planètes</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Charge et execute le fichier javascript pour les interactions -->
+    <script src="interactions.js"></script>
   </head>
 
   <body>
@@ -60,7 +62,8 @@ try {
     <!-- Liste des planètes -->
     <div class="planet-list">
       <?php foreach ($planetes as $planete): ?>
-        <div class="planet-card">
+        <!-- cree les div des items avec la classe 'card' et un element data avec les donnée pour la recherche -->
+        <div class="card planet-card" data-search_value="<?= htmlspecialchars($planete['nom']) ?>">
           <div class="planet-image">
             <?php if (!empty($planete['image_url'])): ?>
               <img class="vignette" src="<?= htmlspecialchars("images/normal/".$planete['image_url']) ?>" alt="<?= htmlspecialchars($planete['nom']) ?>" />

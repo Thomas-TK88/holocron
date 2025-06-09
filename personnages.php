@@ -26,6 +26,8 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HOLOCRON - Personnages</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Charge et execute le fichier javascript pour les interactions -->
+  <script src="interactions.js"></script>
 </head>
 
 <body>
@@ -51,10 +53,15 @@ try {
     <h2>LES PERSONNAGES</h2>
     <p>Vous retrouverez ici les principaux personnages de l’univers STAR WARS</p>
 
+  <!-- Zone de recherche -->
+  <div class="search-bar">
+    <input id="searchInput" type="text" placeholder="Rechercher un personnage..." />
+  </div>
+
   <!-- Liste des personnages -->
     <div class="character-list">
       <?php foreach ($personnages as $perso): ?>
-        <div class="character-card">
+        <div class="card character-card" data-search_value="<?= htmlspecialchars($perso['nom']) ?>">
           <div class="character-image">
             <?php if (!empty($perso['image_url'])): ?>
               <img class="vignette" src="<?= htmlspecialchars("images/normal/".$perso['image_url']) ?>" alt="<?= htmlspecialchars($perso['nom']) ?>">

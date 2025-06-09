@@ -25,6 +25,8 @@ $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HOLOCRON - Films</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Charge et execute le fichier javascript pour les interactions -->
+  <script src="interactions.js"></script>
 </head>
 
 <body>
@@ -45,6 +47,11 @@ $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </ul>
   </nav>
   
+  <!-- Zone de recherche -->
+  <div class="search-bar">
+    <input id="searchInput" type="text" placeholder="Rechercher un film..." />
+  </div>
+
   <!-- Titre de page -->
   <main class="accueil-page">
     <h2>LES FILMS</h2>
@@ -53,7 +60,7 @@ $films = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- Liste de films -->
     <section class="film-list">
       <?php foreach ($films as $film): ?>
-      <div class="film-card">
+      <div class="card film-card" data-search_Value="<?= htmlspecialchars($film['titre']) ?>">
         <div class="character-image">
             <?php if (!empty($film['image_url'])): ?>
               <img class="vignette" src="<?= htmlspecialchars("images/".$film['image_url']) ?>" alt="<?= htmlspecialchars($film['titre']) ?>">
