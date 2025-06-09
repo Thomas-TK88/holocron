@@ -10,6 +10,9 @@ window.addEventListener("load", function () {
 
   // Initialise l'interaction avec les images flippable
   initImageFlipListenersTB();
+
+  // Initialise la lecture du son des personnages
+  initSoundListenersTB();
 });
 
 // Fonction d'initialisation de l'interaction de recherche
@@ -64,4 +67,33 @@ function flipImageMouseoutCallbackTB(event) {
   const img = event.target;
   // Utilise l'attribut data avec l'image "normal" pour changer la source de l'image
   img.src = img.dataset.normal_img;
+}
+
+// Fonction d'initialisation de l'interaction de son des personnages
+function initSoundListenersTB() {
+  // Selection toutes les boutons son grace à la classe 'sound'
+  const boutonItems = document.querySelectorAll(".sound");
+  // Pour chaque bouton, ajout des ecouteurs d'evenement de click
+  boutonItems.forEach((item) => {
+    // URL du son dans les données
+    const sonUrl = item.dataset.sound;
+    // Creation d'un objet Audio
+    const audioObj = document.createElement("audio");
+    const source = document.createElement("source");
+    source.src = sonUrl;
+    source.type = "audio/mpeg";
+    audioObj.appendChild(source);
+    audioObj.load();
+
+    // Ecouteur d'evenement de click avec le son passé en paramètre
+    item.addEventListener("click", playSoundCallbackTB.bind(null, audioObj));
+  });
+}
+
+// Fonction de callback de l'evenement de click, avec le son en paramètre
+function playSoundCallbackTB(audioObj, event) {
+  // remet le son au debut
+  audioObj.currentTime = 0;
+  // joue le son
+  audioObj.play();
 }

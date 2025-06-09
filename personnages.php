@@ -72,6 +72,9 @@ try {
             <h3><?= htmlspecialchars($perso['nom']) ?></h3>
             <p><?= nl2br(htmlspecialchars($perso['description'])) ?></p>
             <div class="film-buttons">
+              <?php if (!empty($perso['sound_url'])): ?>
+                <button class="sound" data-sound="<?= htmlspecialchars("sons/".$perso['sound_url']) ?>" src="<?= htmlspecialchars("sons/".$perso['sound_url']) ?>">🔊 Ecouter</button>
+              <?php endif; ?>
               <a href="fiche.php?id=<?= $perso['id_personnage'] ?>&type=personnage" class="cta">Voir le personnage</a>
               <a href="formulaire.php?id=<?= $perso['id_personnage'] ?>&type=personnage" class="review-btn">Donner un avis</a>
             </div>
